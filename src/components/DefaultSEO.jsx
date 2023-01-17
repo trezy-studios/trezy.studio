@@ -25,7 +25,10 @@ const twitterProperties = {
 function DefaultSEOWrapper() {
 	return (
 		<DefaultSEO
+			defaultTitle={'Trezy Studios'}
 			openGraph={ogProperties}
+			themeColor={'#0e92c7'}
+			titleTemplate={'%s | Trezy Studios'}
 			twitter={twitterProperties} />
 	)
 }
