@@ -24,10 +24,12 @@ export function Banner() {
 		<header
 			className={styles['banner']}
 			role={'banner'}>
-			<Image
-				alt={'Trezy Studios logo'}
-				src={LogoImage}
-				width={50} />
+			<div className={styles['brand']}>
+				<Image
+					alt={'Trezy Studios logo'}
+					src={LogoImage}
+					width={50} />
+			</div>
 
 			<nav>
 				<Link href={'/'}>

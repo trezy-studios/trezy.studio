@@ -2,9 +2,15 @@
 	align-items: stretch;
 	display: flex;
 	justify-content: space-between;
-	padding: 2rem;
 	position: sticky;
 	top: 0;
+
+	.brand {
+		padding-bottom: 1rem;
+		padding-left: 2rem;
+		padding-right: 2rem;
+		padding-top: 1rem;
+	}
 
 	nav {
 		display: flex;
