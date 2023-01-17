@@ -4,6 +4,7 @@ import {
 	faGithub,
 	faItchIo,
 	faSteam,
+	faTwitter,
 	faYoutube,
 } from '@fortawesome/free-brands-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
@@ -35,6 +36,14 @@ export function Footer() {
 					<FontAwesomeIcon
 						fixedWidth
 						icon={faDiscord} />
+				</Link>
+
+				<Link
+					className={styles['twitter']}
+					href={'/twitter'}>
+					<FontAwesomeIcon
+						fixedWidth
+						icon={faTwitter} />
 				</Link>
 
 				<Link
