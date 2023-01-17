@@ -14,7 +14,7 @@ import {
 	GoogleAnalytics,
 } from 'nextjs-google-analytics'
 import { Banner } from '../components/Banner/Banner.jsx'
-import { DefaultSEO } from '../components/DefaultSEO.jsx'
+import { DefaultSEO } from '../components/DefaultSEO/DefaultSEO.jsx'
 import { config as fontAwesomeConfig } from '@fortawesome/fontawesome-svg-core'
 import { Footer } from '../components/Footer/Footer.jsx'
 import NextHead from 'next/head.js'
