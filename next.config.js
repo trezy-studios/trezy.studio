@@ -50,7 +50,7 @@ module.exports = {
 			},
 			{
 				source: '/youtube',
-				destination: 'https://www.youtube.com/channel/',
+				destination: 'https://youtube.com/@TrezyStudios',
 				permanent: false,
 			},
 		]
