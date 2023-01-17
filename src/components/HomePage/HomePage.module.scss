@@ -1,0 +1,40 @@
+.description {
+	font-weight: 600;
+	max-width: 80rem;
+	text-align: center;
+
+	p + p {
+		margin-top: 2rem;
+	}
+}
+
+.page-content {
+	align-items: center;
+	display: flex;
+	flex-direction: column;
+	gap: 50px;
+	line-height: 1.5;
+	padding: 5rem;
+}
+
+.social-links {
+	display: flex;
+	font-size: 3rem;
+	gap: 20px;
+
+	.discord:hover {
+		color: var(--palette-purple);
+	}
+
+	.itch:hover {
+		color: var(--palette-red);
+	}
+
+	.steam:hover {
+		color: var(--palette-light-grey);
+	}
+
+	.youtube:hover {
+		color: var(--palette-red);
+	}
+}
