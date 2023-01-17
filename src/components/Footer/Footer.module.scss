@@ -1,10 +1,13 @@
-.description {
-	font-weight: 600;
-	max-width: 80rem;
-	text-align: center;
+.footer {
+	align-items: center;
+	bottom: 0;
+	display: flex;
+	justify-content: space-between;
+	padding: 2rem;
+	position: sticky;
 
-	p + p {
-		margin-top: 2rem;
+	small {
+		font-size: var(--font-size-small);
 	}
 }
 

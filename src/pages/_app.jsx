@@ -13,8 +13,10 @@ import {
 	event as trackEvent,
 	GoogleAnalytics,
 } from 'nextjs-google-analytics'
+import { Banner } from '../components/Banner/Banner.jsx'
 import { DefaultSEO } from '../components/DefaultSEO.jsx'
 import { config as fontAwesomeConfig } from '@fortawesome/fontawesome-svg-core'
+import { Footer } from '../components/Footer/Footer.jsx'
 import NextHead from 'next/head.js'
 import PropTypes from 'prop-types'
 import { useRouter } from 'next/router'
@@ -64,9 +66,13 @@ export default function App(props) {
 					href={'/site.webmanifest'} />
 			</NextHead>
 
+			<Banner />
+
 			<Component
 				key={router.route}
 				{...pageProps} />
+
+			<Footer />
 		</>
 	)
 }
