@@ -19,7 +19,7 @@ import { PageSection } from '../PageSection/PageSection.jsx'
 
 export function HomePage() {
 	return (
-		<PageContent>
+		<PageContent title={'Home'}>
 			<PageSection>
 				<Heading>
 					<Image

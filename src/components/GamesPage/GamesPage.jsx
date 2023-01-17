@@ -25,7 +25,7 @@ import { Link } from '../Link/Link.jsx'
 
 export function GamesPage() {
 	return (
-		<PageContent>
+		<PageContent title={'Our Games'}>
 			<PageSection>
 				<div className={styles['game-card']}>
 					<div className={styles['thumbnail']}>
