@@ -19,6 +19,11 @@ module.exports = {
 			// 	permanent: false,
 			// },
 			{
+				source: '/bsky',
+				destination: 'https://bsky.app/profile/trezy.studio',
+				permanent: false,
+			},
+			{
 				source: '/discord',
 				destination: 'https://discord.gg/QXaS8zk6mH',
 				permanent: false,
