@@ -27,6 +27,29 @@ export function Footer() {
 		<footer className={styles['footer']}>
 			<small>
 				{`© ${new Date().getFullYear()} Trezy Studios, LLC. All rights reserved.`}
+				<br />
+
+				<Link href={'/legal/terms-of-service'}>
+					{'Terms of Service'}
+				</Link>
+
+				{' | '}
+
+				<Link href={'/legal/privacy-policy'}>
+					{'Privacy Policy'}
+				</Link>
+
+				{' | '}
+
+				<Link href={'/legal/cookie-policy'}>
+					{'Cookie Policy'}
+				</Link>
+
+				{' | '}
+
+				<Link href={'/legal/code-of-conduct'}>
+					{'Code of Conduct'}
+				</Link>
 			</small>
 
 			<div className={styles['social-links']}>
