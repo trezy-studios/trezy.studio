@@ -8,4 +8,16 @@
 	margin-right: auto;
 	max-width: 80rem;
 	padding: 5rem;
+
+	&.align-left {
+		align-items: start;
+	}
+
+	&.align-right {
+		align-items: end;
+	}
+
+	&.use-small-gaps {
+		gap: 10px;
+	}
 }

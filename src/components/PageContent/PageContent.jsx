@@ -16,12 +16,15 @@ import styles from './PageContent.module.scss'
 export function PageContent(props) {
 	const {
 		children,
+		description,
 		title,
 	} = props
 
 	return (
 		<>
-			<NextSEO title={title} />
+			<NextSEO
+				description={description}
+				title={title} />
 
 			<div className={styles['page-content']}>
 				{children}
@@ -32,10 +35,12 @@ export function PageContent(props) {
 
 PageContent.defaultProps = {
 	children: null,
+	description: undefined,
 	title: undefined,
 }
 
 PageContent.propTypes = {
 	children: PropTypes.node,
+	description: PropTypes.string,
 	title: PropTypes.string,
 }
