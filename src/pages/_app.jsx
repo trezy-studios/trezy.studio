@@ -39,7 +39,9 @@ export default function App(props) {
 		<>
 			<DefaultSEO />
 
-			<GoogleAnalytics trackPageViews />
+			<GoogleAnalytics
+				debugMode={process.env.NODE_ENV !== 'production'}
+				trackPageViews />
 
 			<NextHead>
 				<meta charSet={'utf-8'} />
