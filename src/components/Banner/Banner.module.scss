@@ -15,9 +15,9 @@
 	nav {
 		align-items: center;
 		display: flex;
-		gap: 2rem;
+		gap: 4rem;
 		margin-left: auto;
-		padding-right: 2rem;
+		padding-right: 4rem;
 
 		a,
 		button {
@@ -35,7 +35,7 @@
 		> .dropdown > a,
 		> .dropdown > button {
 			background-color: var(--palette-black);
-			border-radius: 1.5rem;
+			border-radius: 0.5rem;
 			overflow: hidden;
 			transform: none;
 			transition-duration: 0.1s;
@@ -120,14 +120,14 @@
 			}
 
 			&:first-child {
-				border-top-left-radius: 1.5rem;
-				border-top-right-radius: 1.5rem;
+				border-top-left-radius: 0.5rem;
+				border-top-right-radius: 0.5rem;
 				overflow: hidden;
 			}
 
 			&:last-child {
-				border-bottom-left-radius: 1.5rem;
-				border-bottom-right-radius: 1.5rem;
+				border-bottom-left-radius: 0.5rem;
+				border-bottom-right-radius: 0.5rem;
 				overflow: hidden;
 			}
 		}
