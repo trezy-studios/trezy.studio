@@ -1,17 +1,9 @@
 /* eslint-env node */
 
-/**
- * @typedef RedirectConfig
- * @property {string} source The route to be redirected
- * @property {string} destination The destination to which the request should be redirected
- * @property {boolean} permanent Whether this redirect should be a 307 (temp) or 308 (permanent)
- */
-
-module.exports = {
-	/**
-	 * @returns {RedirectConfig[]} An array of redirect configs.
-	 */
-	redirects() {
+/** @type {import('next').NextConfig} */
+const nextConfig = {
+	// eslint-disable-next-line jsdoc/require-jsdoc, require-await
+	async redirects() {
 		return [
 			// {
 			// 	source: '/kickstarter',
@@ -60,4 +52,24 @@ module.exports = {
 			},
 		]
 	},
+
+	i18n: {
+		locales: ['en-US'],
+		defaultLocale: 'en-US',
+	},
+
+	images: {
+		remotePatterns: [
+			{
+				hostname: 'images.ctfassets.net',
+				protocol: 'https',
+			},
+			{
+				hostname: 'cdn.discordapp.com',
+				protocol: 'https',
+			},
+		],
+	},
 }
+
+module.exports = nextConfig

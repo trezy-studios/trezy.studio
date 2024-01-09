@@ -16,17 +16,23 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 // Local imports
 import styles from './Footer.module.scss'
 
+import { faHumbleBundle } from '../../icons/faHumbleBundle.js'
 import { Link } from '../Link/Link.jsx'
 
 
 
 
 
+/**
+ * Renders the site footer.
+ *
+ * @component
+ */
 export function Footer() {
 	return (
 		<footer className={styles['footer']}>
 			<small>
-				{`© ${new Date().getFullYear()} Trezy Studios, LLC. All rights reserved.`}
+				{`© ${(new Date).getFullYear()} Trezy Studios, LLC. All rights reserved.`}
 				<br />
 
 				<Link href={'/legal/terms-of-service'}>
@@ -83,6 +89,14 @@ export function Footer() {
 					<FontAwesomeIcon
 						fixedWidth
 						icon={faSteam} />
+				</Link>
+
+				<Link
+					className={styles['humble-bundle']}
+					href={'/humble-bundle'}>
+					<FontAwesomeIcon
+						fixedWidth
+						icon={faHumbleBundle} />
 				</Link>
 
 				<Link

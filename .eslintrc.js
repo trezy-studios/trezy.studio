@@ -5,10 +5,17 @@ module.exports = {
 	env: {
 		browser: true,
 		es2022: true,
+		node: true,
 	},
 	extends: [
 		'eslint:recommended',
+		'plugin:@next/next/recommended',
+		'plugin:@typescript-eslint/recommended',
+		'plugin:@typescript-eslint/eslint-recommended',
 		'plugin:editorconfig/all',
+		'plugin:import/recommended',
+		'plugin:import/electron',
+		'plugin:import/typescript',
 		'plugin:jsdoc/recommended',
 		'plugin:jsx-a11y/recommended',
 		'plugin:optimize-regex/recommended',
@@ -18,17 +25,13 @@ module.exports = {
 		'plugin:react-hooks/recommended',
 		'plugin:react-perf/recommended',
 		'plugin:react-prefer-function-component/recommended',
-		'plugin:security/recommended',
-		'plugin:@next/next/recommended',
+		'plugin:security/recommended-legacy',
 	],
-	overrides: [
-		{
-			files: ['*.jsx'],
-			rules: {
-				'jsdoc/require-returns': ['off'],
-			},
-		},
-	],
+	globals: {
+		MAIN_WINDOW_VITE_DEV_SERVER_URL: 'readonly',
+		MAIN_WINDOW_VITE_NAME: 'readonly',
+	},
+	parser: '@typescript-eslint/parser',
 	parserOptions: {
 		ecmaFeatures: {
 			jsx: true,
@@ -36,7 +39,6 @@ module.exports = {
 		sourceType: 'module',
 	},
 	plugins: [
-		'better-docs/component',
 		'editorconfig',
 		'jsdoc',
 		'react',
@@ -44,6 +46,7 @@ module.exports = {
 		'security',
 		'sort-class-members',
 		'unused-imports',
+		'@typescript-eslint',
 	],
 	rules: {
 		// eslint
@@ -100,6 +103,10 @@ module.exports = {
 		'no-unused-expressions': ['error'],
 		'no-unused-labels': ['error'],
 		'no-unused-private-class-members': ['error'],
+		'no-unused-vars': ['warn', {
+			args: 'after-used',
+			argsIgnorePattern: '^_',
+		}],
 		'no-use-before-define': ['error'],
 		'no-useless-call': ['error'],
 		'no-useless-computed-key': ['error'],
@@ -163,6 +170,12 @@ module.exports = {
 		}],
 
 		// jsdoc
+		'jsdoc/check-tag-names': ['error', {
+			definedTags: [
+				'component',
+				'xstate-layout',
+			],
+		}],
 		'jsdoc/require-jsdoc': ['error', {
 			require: {
 				ArrowFunctionExpression: true,
@@ -172,6 +185,15 @@ module.exports = {
 				FunctionExpression: true,
 				MethodDefinition: true,
 			},
+		}],
+		'jsdoc/require-param': ['error', {
+			exemptedBy: ['component'],
+		}],
+		'jsdoc/require-returns': ['error', {
+			exemptedBy: ['component'],
+		}],
+		'jsdoc/tag-lines': ['error', 'never', {
+			startLines: 1,
 		}],
 
 		// react
@@ -202,7 +224,9 @@ module.exports = {
 		'react/jsx-max-props-per-line': ['error'],
 		'react/jsx-no-script-url': ['error'],
 		'react/jsx-no-useless-fragment': ['error'],
-		'react/jsx-pascal-case': ['error'],
+		'react/jsx-pascal-case': ['error', {
+			ignore: ['JSONLD'],
+		}],
 		'react/jsx-props-no-multi-spaces': ['error'],
 		'react/jsx-sort-props': ['error', {
 			reservedFirst: true,
@@ -221,7 +245,7 @@ module.exports = {
 		'react/no-typos': ['error'],
 		'react/no-unused-prop-types': ['error'],
 		'react/prefer-stateless-function': ['error'],
-		'react/require-default-props': ['error'],
+		'react/require-default-props': ['off'],
 		'react/self-closing-comp': ['error'],
 		'react/sort-prop-types': ['error'],
 		'react/style-prop-object': ['error'],

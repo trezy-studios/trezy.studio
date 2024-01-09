@@ -30,12 +30,8 @@ html {
 }
 
 body {
-	background-color: var(--palette-black);
-	font-size: 16px;
-}
-
-#__next {
 	align-content: stretch;
+	background-color: var(--palette-black);
 	color: var(--palette-white);
 	display: flex;
 	flex-direction: column;

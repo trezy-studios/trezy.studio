@@ -5,5 +5,6 @@
 	@include generateHSLCustomPropertiesFromColor('palette-almost-black', #1a1a1a);
 	@include generateHSLCustomPropertiesFromColor('palette-black', black);
 	@include generateHSLCustomPropertiesFromColor('palette-blue', #0e92c7);
+	@include generateHSLCustomPropertiesFromColor('palette-dark-grey', #373737);
 	@include generateHSLCustomPropertiesFromColor('palette-white', white);
 }

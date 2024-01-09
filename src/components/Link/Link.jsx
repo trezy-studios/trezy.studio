@@ -26,14 +26,7 @@ import { ExternalLink } from '../ExternalLink/ExternalLink.jsx'
 /**
  * Handles ambiguous links, wrapping them with whichever component is most appropriate.
  *
- * @param {object} props All props.
- * @param {import('react').ReactNode} props.children The contents of the component.
- * @param {string} [props.className] Additional classes to be applied to the component.
- * @param {boolean} [props.isAuxiliary=false] Whether or not this link is used for an auxiliary action (only valid if `isButton` is true).
- * @param {boolean} [props.isButton=false] Whether or not this component should look like a button.
- * @param {boolean} [props.isLink=false] Whether or not this link should look like a link (only valid if `isButton` is true).
- * @param {boolean} [props.isPrimary=false] Whether or not this link is used for a primary action (only valid if `isButton` is true).
- * @param {string} props.href The URL to which this link leads.
+ * @component
  */
 export function Link(props) {
 	const {

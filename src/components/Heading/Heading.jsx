@@ -14,11 +14,16 @@ import styles from './Heading.module.scss'
 
 
 
+/**
+ * Renders a heading (h1-h6).
+ *
+ * @component
+ */
 export function Heading(props) {
 	const {
 		children,
-		className,
-		level,
+		className = '',
+		level = 1,
 	} = props
 
 	const compiledClassName = useMemo(() => {
@@ -73,12 +78,6 @@ export function Heading(props) {
 			{children}
 		</h6>
 	)
-}
-
-Heading.defaultProps = {
-	children: null,
-	className: '',
-	level: 1,
 }
 
 Heading.propTypes = {

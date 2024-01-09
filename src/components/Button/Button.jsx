@@ -1,11 +1,13 @@
 // Style imports
+import {
+	useCallback,
+	useMemo,
+} from 'react'
+import classnames from 'classnames'
 import { faSpinner } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { motion } from 'framer-motion'
-import classnames from 'classnames'
 import PropTypes from 'prop-types'
-import { useMemo } from 'react'
-
 
 
 
@@ -42,7 +44,7 @@ const VARIANTS = {
 export function Button(props) {
 	const {
 		children,
-		className,
+		className = '',
 		isAuxiliary,
 		isDisabled,
 		isLink,
@@ -52,6 +54,7 @@ export function Button(props) {
 		onClick,
 		onMouseOut,
 		onMouseOver,
+		shouldShowLoader,
 	} = props
 
 	const compiledClassName = useMemo(() => {
@@ -71,50 +74,45 @@ export function Button(props) {
 		isPrimary,
 	])
 
+	const handleActivate = useCallback((...args) => {
+		if (onMouseOver) {
+			onMouseOver(...args)
+		}
+	}, [onMouseOver])
+
+	const handleDeactivate = useCallback((...args) => {
+		if (onMouseOut) {
+			onMouseOut(...args)
+		}
+	}, [onMouseOut])
+
 	return (
 		// eslint-disable-next-line react/forbid-elements
 		<button
 			className={compiledClassName}
 			disabled={isDisabled}
+			onBlur={handleDeactivate}
 			onClick={onClick}
-			onMouseOver={onMouseOver}
-			onMouseOut={onMouseOut}
+			onFocus={handleActivate}
+			onMouseOut={handleDeactivate}
+			onMouseOver={handleActivate}
 			type={isSubmit ? 'submit' : 'button'}>
-			<motion.span
-				animate={isLoading ? 'hidden' : 'visible'}
-				className={styles['children']}
-				initial={'visible'}
-				variants={VARIANTS}>
-				{children}
-			</motion.span>
+			{children}
 
-			<motion.span
-				animate={isLoading ? 'visible' : 'hidden'}
-				className={styles['loader']}
-				initial={'hidden'}
-				variants={VARIANTS}>
-				<FontAwesomeIcon
-					fixedWidth
-					icon={faSpinner}
-					spinPulse />
-			</motion.span>
+			{shouldShowLoader && (
+				<motion.span
+					animate={isLoading ? 'visible' : 'hidden'}
+					className={styles['loader']}
+					initial={'hidden'}
+					variants={VARIANTS}>
+					<FontAwesomeIcon
+						fixedWidth
+						icon={faSpinner}
+						spinPulse />
+				</motion.span>
+			)}
 		</button>
 	)
-}
-
-Button.defaultProps = {
-	children: null,
-	className: '',
-	isAuxiliary: false,
-	isDisabled: false,
-	isFullWidth: false,
-	isLink: false,
-	isLoading: false,
-	isPrimary: false,
-	isSubmit: false,
-	onClick: null,
-	onMouseOut: () => {},
-	onMouseOver: () => {},
 }
 
 Button.propTypes = {
@@ -150,4 +148,7 @@ Button.propTypes = {
 
 	/** The function to be executed when the cursor moves over this button. */
 	onMouseOver: PropTypes.func,
+
+	/** Whether the loader should be included in the button layout. */
+	shouldShowLoader: PropTypes.bool,
 }

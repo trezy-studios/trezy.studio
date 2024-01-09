@@ -1,5 +1,4 @@
 // Module imports
-import { NextSeo as NextSEO } from 'next-seo'
 import PropTypes from 'prop-types'
 
 
@@ -13,34 +12,21 @@ import styles from './PageContent.module.scss'
 
 
 
+/**
+ * Wraps and centers page content.
+ *
+ * @component
+ */
 export function PageContent(props) {
-	const {
-		children,
-		description,
-		title,
-	} = props
+	const { children } = props
 
 	return (
-		<>
-			<NextSEO
-				description={description}
-				title={title} />
-
-			<div className={styles['page-content']}>
-				{children}
-			</div>
-		</>
+		<div className={styles['page-content']}>
+			{children}
+		</div>
 	)
-}
-
-PageContent.defaultProps = {
-	children: null,
-	description: undefined,
-	title: undefined,
 }
 
 PageContent.propTypes = {
 	children: PropTypes.node,
-	description: PropTypes.string,
-	title: PropTypes.string,
 }

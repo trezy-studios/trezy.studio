@@ -1,17 +1,8 @@
-// Module imports
-import {
-	faGamepad,
-	faHome,
-} from '@fortawesome/free-solid-svg-icons'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-
-
-
-
-
 // Local imports
+import { AuthLinkAndDropdown } from './AuthLinkAndDropdown.jsx'
+import { GamesLink } from './GamesLink.jsx'
+import { HomeLink } from './HomeLink.jsx'
 import Image from 'next/image.js'
-import { Link } from '../Link/Link.jsx'
 import LogoImage from '../../../public/logomark.png'
 import styles from './Banner.module.scss'
 
@@ -19,6 +10,11 @@ import styles from './Banner.module.scss'
 
 
 
+/**
+ * Renders the navigation banner.
+ *
+ * @component
+ */
 export function Banner() {
 	return (
 		<header
@@ -32,23 +28,9 @@ export function Banner() {
 			</div>
 
 			<nav>
-				<Link href={'/'}>
-					<FontAwesomeIcon
-						fixedWidth
-						icon={faHome}
-						size={'xs'} />
-
-					{'Home'}
-				</Link>
-
-				<Link href={'/games'}>
-					<FontAwesomeIcon
-						fixedWidth
-						icon={faGamepad}
-						size={'xs'} />
-
-					{'Games'}
-				</Link>
+				<HomeLink />
+				<GamesLink />
+				<AuthLinkAndDropdown />
 			</nav>
 		</header>
 	)

@@ -1,5 +1,6 @@
 // Module imports
 import classnames from 'classnames'
+import PropTypes from 'prop-types'
 import { useMemo } from 'react'
 
 
@@ -13,10 +14,16 @@ import styles from './PageSection.module.scss'
 
 
 
+/**
+ * Wraps a section of a page.
+ *
+ * @component
+ */
 export function PageSection(props) {
 	const {
-		alignment,
+		alignment = 'center',
 		children,
+		className = '',
 		useSmallGaps,
 	} = props
 
@@ -26,12 +33,23 @@ export function PageSection(props) {
 			[styles['align-left']]: alignment === 'left',
 			[styles['align-right']]: alignment === 'right',
 			[styles['use-small-gaps']]: useSmallGaps,
-		})
-	}, [alignment])
+		}, className)
+	}, [
+		alignment,
+		className,
+		useSmallGaps,
+	])
 
 	return (
 		<section className={compiledClassName}>
 			{children}
 		</section>
 	)
+}
+
+PageSection.propTypes = {
+	alignment: PropTypes.oneOf(['left', 'center', 'right']),
+	children: PropTypes.node,
+	className: PropTypes.string,
+	useSmallGaps: PropTypes.bool,
 }
