@@ -1,0 +1,65 @@
+button.menu-control {
+	--menu-control-padding: 1rem;
+	--menu-control-size: 3rem;
+
+	background-color: transparent;
+	border-radius: 50%;
+	height: calc(var(--menu-control-size) + (var(--menu-control-padding) * 2));
+	margin-left: auto;
+	margin-right: 4rem;
+	padding: var(--menu-control-padding);
+	width: calc(var(--menu-control-size) + (var(--menu-control-padding) * 2));
+
+	&:hover {
+		background-color: var(--palette-blue);
+	}
+
+	&:after,
+	&:before {
+		background-color: currentColor;
+		content: '';
+		display: block;
+		height: 0.2rem;
+		transition-delay:
+			0.3s,
+			0s;
+		transition-duration:
+			0.25s,
+			0.3s;
+		transition-property:
+			translate,
+			rotate;
+		width: 100%;
+	}
+
+	&:after {
+		animation-name: menu-control-1;
+		rotate: 0deg;
+		translate: 0 0.4rem;
+	}
+
+	&:before {
+		animation-name: menu-control-2;
+		rotate: 0deg;
+		translate: 0 -0.4rem;
+	}
+
+	&.is-application-nav-visible {
+		&:after,
+		&:before {
+			transition-delay:
+				0s,
+				0.3s;
+		}
+
+		&:after {
+			rotate: -45deg;
+			translate: 0 -0.1rem;
+		}
+
+		&:before {
+			rotate: 45deg;
+			translate: 0 0.1rem;
+		}
+	}
+}

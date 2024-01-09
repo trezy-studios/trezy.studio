@@ -28,7 +28,7 @@ export default function Home() {
 			<PageSection>
 				<Heading>
 					<Image
-						alt={'debug'}
+						alt={'Trezy Studios logo'}
 						src={LogoImage}
 						width={500} />
 				</Heading>

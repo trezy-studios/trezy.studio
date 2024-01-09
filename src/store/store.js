@@ -14,6 +14,8 @@ export const store = makeStore({
 
 	/** @type {null | import('../types/GameKey.js').GameKey[]} */
 	gameKeys: null,
+
+	isApplicationNavVisible: false,
 })
 
 if (typeof window !== 'undefined') {

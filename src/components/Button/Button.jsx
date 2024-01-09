@@ -4,33 +4,16 @@ import {
 	useMemo,
 } from 'react'
 import classnames from 'classnames'
-import { faSpinner } from '@fortawesome/free-solid-svg-icons'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { motion } from 'framer-motion'
 import PropTypes from 'prop-types'
 
 
 
 
 
-// Module imports
+// Local imports
 import styles from './Button.module.scss'
 
-
-
-
-
-// Constants
-const VARIANTS = {
-	hidden: {
-		opacity: 0,
-		x: 20,
-	},
-	visible: {
-		opacity: 1,
-		x: 0,
-	},
-}
+import { ButtonLoader } from './ButtonLoader.jsx'
 
 
 
@@ -100,16 +83,7 @@ export function Button(props) {
 			{children}
 
 			{shouldShowLoader && (
-				<motion.span
-					animate={isLoading ? 'visible' : 'hidden'}
-					className={styles['loader']}
-					initial={'hidden'}
-					variants={VARIANTS}>
-					<FontAwesomeIcon
-						fixedWidth
-						icon={faSpinner}
-						spinPulse />
-				</motion.span>
+				<ButtonLoader isLoading={isLoading} />
 			)}
 		</button>
 	)

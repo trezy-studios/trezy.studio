@@ -1,6 +1,5 @@
 // Module imports
 import classnames from 'classnames'
-// import { Inter } from 'next/font/google'
 import PropTypes from 'prop-types'
 import { useMemo } from 'react'
 
@@ -13,6 +12,7 @@ import '../styles/reset.scss'
 import '../styles/lib.scss'
 import '../styles/app.scss'
 
+import { ApplicationNav } from '../components/ApplicationNav.js/ApplicationNav.jsx'
 import { ArticulatFont } from '../fonts/ArticulatFont.js'
 import { Banner } from '../components/Banner/Banner.jsx'
 import { Footer } from '../components/Footer/Footer.jsx'
@@ -41,6 +41,7 @@ export default function RootLayout(props) {
 			className={compiledClassName}
 			lang={'en'}>
 			<body>
+				<ApplicationNav />
 				<Banner />
 
 				{children}
