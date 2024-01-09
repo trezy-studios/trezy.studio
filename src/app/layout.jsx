@@ -17,25 +17,8 @@ import { ArticulatFont } from '../fonts/ArticulatFont.js'
 import { Banner } from '../components/Banner/Banner.jsx'
 import { Footer } from '../components/Footer/Footer.jsx'
 import { JSONLD } from '../components/JSONLD/JSONLD.jsx'
-
-
-
-
-
-// Constants
-const JSON_LD = {
-	'@context': 'https://schema.org',
-	'@type': 'Organization',
-	contactPoint: { email: 'hello@trezy.studio' },
-	founders: [
-		{ givenName: 'Trezy' },
-	],
-	foundingDate: '2022-06-16T05:00:00.000Z',
-	legalName: 'Trezy Studios, LLC',
-	logo: 'https://trezy.studio/logo.light.png',
-	name: 'Trezy Studios',
-	url: 'https://trezy.studio',
-}
+import { TREZY_JSONLD } from '../json+ld/Trezy.js'
+import { TREZYSTUDIOS_JSONLD } from '../json+ld/TrezyStudios.js'
 
 
 
@@ -64,7 +47,8 @@ export default function RootLayout(props) {
 
 				<Footer />
 
-				<JSONLD data={JSON_LD} />
+				<JSONLD data={TREZY_JSONLD} />
+				<JSONLD data={TREZYSTUDIOS_JSONLD} />
 			</body>
 		</html>
 	)
