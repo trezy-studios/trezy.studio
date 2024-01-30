@@ -85,22 +85,6 @@ export function ContentSummary() {
 
 				<div className={styles['social-links']}>
 					<Link
-						className={styles['discord']}
-						href={'/discord'}>
-						<FontAwesomeIcon
-							fixedWidth
-							icon={faDiscord} />
-					</Link>
-
-					<Link
-						className={styles['steam']}
-						href={'/steam'}>
-						<FontAwesomeIcon
-							fixedWidth
-							icon={faSteam} />
-					</Link>
-
-					<Link
 						className={styles['twitter']}
 						href={'/twitter'}>
 						<FontAwesomeIcon
@@ -114,6 +98,22 @@ export function ContentSummary() {
 						<FontAwesomeIcon
 							fixedWidth
 							icon={faYoutube} />
+					</Link>
+
+					<Link
+						className={styles['steam']}
+						href={'/steam'}>
+						<FontAwesomeIcon
+							fixedWidth
+							icon={faSteam} />
+					</Link>
+
+					<Link
+						className={styles['discord']}
+						href={'/discord'}>
+						<FontAwesomeIcon
+							fixedWidth
+							icon={faDiscord} />
 					</Link>
 				</div>
 			</div>

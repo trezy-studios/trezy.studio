@@ -1,12 +1,7 @@
-// Style imports
+// Module imports
 import buttonStyles from '../Button/Button.module.scss'
 import styles from './Link.module.scss'
 
-
-
-
-
-// Module imports
 import classnames from 'classnames'
 import NextLink from 'next/link.js'
 import PropTypes from 'prop-types'
@@ -34,6 +29,7 @@ import { ExternalLink } from '../ExternalLink/ExternalLink.jsx'
  * @param {boolean} [props.isButton] Whether or not this component should look like a button.
  * @param {boolean} [props.isLink] Whether or not this link should look like a link (only valid if `isButton` is true).
  * @param {boolean} [props.isPrimary] Whether or not this link is used for a primary action (only valid if `isButton` is true).
+ * @param {boolean} [props.isSecondary] Whether or not this link is used for a secondary action (only valid if `isButton` is true).
  * @param {string} props.href The URL to which this link leads.
  */
 export function Link(props) {
@@ -45,14 +41,16 @@ export function Link(props) {
 		isButton,
 		isLink,
 		isPrimary,
+		isSecondary,
 	} = props
 
 	const compiledClassName = useMemo(() => {
 		return classnames(className, styles['link'], {
-			[buttonStyles.button]: isButton,
+			[buttonStyles['button']]: isButton,
 			[buttonStyles['is-auxiliary']]: isButton && isAuxiliary,
 			[buttonStyles['is-link']]: isButton && isLink,
 			[buttonStyles['is-primary']]: isButton && isPrimary,
+			[buttonStyles['is-secondary']]: isButton && isSecondary,
 		})
 	}, [
 		className,
@@ -60,6 +58,7 @@ export function Link(props) {
 		isButton,
 		isLink,
 		isPrimary,
+		isSecondary,
 	])
 
 	// eslint-disable-next-line security/detect-unsafe-regex
@@ -90,4 +89,5 @@ Link.propTypes = {
 	isButton: PropTypes.bool,
 	isLink: PropTypes.bool,
 	isPrimary: PropTypes.bool,
+	isSecondary: PropTypes.bool,
 }

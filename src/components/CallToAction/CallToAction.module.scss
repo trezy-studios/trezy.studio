@@ -1,0 +1,72 @@
+.action {
+	align-self: stretch;
+	background-color: var(--palette-black);
+	border-radius: 0.5rem;
+	display: flex;
+	gap: 1rem;
+	margin-bottom: -2rem;
+	margin-left: auto;
+	margin-top: -2rem;
+	padding: 1rem 4rem;
+	text-decoration: none;
+	scale: 1;
+	transition-duration: 0.15s;
+	transition-property: scale;
+	transition-timing-function: cubic-bezier(0.49, 0.38, 0, 1);
+	white-space: nowrap;
+
+	&:hover {
+		scale: 1.1;
+	}
+}
+
+.background-icon {
+	color: var(--palette-black);
+	font-size: 15rem;
+	left: -2.5rem;
+	opacity: 0.4;
+	position: absolute;
+	rotate: 15deg;
+	top: 50%;
+	translate: 0 -50%;
+}
+
+.call-to-action {
+	--gradient-color-hue: var(--palette-blue-h);
+	--gradient-color-saturation: var(--palette-blue-s);
+	--gradient-color-lightness: var(--palette-blue-l);
+
+	align-items: center;
+	background-image: linear-gradient(
+		135deg,
+		hsla(
+			var(--gradient-color-hue),
+			calc(var(--gradient-color-saturation) - 50%),
+			calc(var(--gradient-color-lightness) - 50%),
+		) 10%,
+		hsla(
+			var(--gradient-color-hue),
+			calc(var(--gradient-color-saturation) - 30%),
+			calc(var(--gradient-color-lightness) - 30%),
+		) 55%,
+		hsla(
+			var(--gradient-color-hue),
+			var(--gradient-color-saturation),
+			var(--gradient-color-lightness),
+		),
+	);
+	border-radius: 0.5rem;
+	display: flex;
+	gap: 2rem;
+	margin-left: calc(var(--content-outset) * -1);
+	margin-right: calc(var(--content-outset) * -1);
+	overflow: hidden;
+	padding: 4rem var(--content-outset);
+	padding-right: 2rem;
+	position: relative;
+
+	> :not(.background-icon) {
+		position: relative;
+		z-index: 1;
+	}
+}

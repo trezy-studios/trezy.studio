@@ -166,7 +166,7 @@ export default function PrivacyPolicy() {
 	)
 }
 
+/** @type {import('next').Metadata} */
 export const metadata = {
-	description: 'Privacy Policy',
 	title: 'Privacy Policy',
 }

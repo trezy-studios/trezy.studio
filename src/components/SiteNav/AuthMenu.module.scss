@@ -1,0 +1,45 @@
+.inline-avatar {
+	aspect-ratio: 1 / 1;
+	border-radius: 1ch;
+	display: inline-block;
+	height: 2ch;
+	margin-bottom: -0.5ch;
+	margin-right: 0.2rem;
+	overflow: hidden;
+	position: relative;
+	vertical-align: baseline;
+}
+
+.user-container {
+	background-color: hsla(var(--palette-black-hsl), 0.5);
+	border-radius: 0.5rem;
+	overflow: hidden;
+
+	header {
+		background-color: hsla(var(--palette-black-hsl), 0.5);
+		display: block;
+		padding: 2rem;
+	}
+
+	ul {
+		display: flex;
+		flex-direction: column;
+		padding-bottom: 1rem;
+		padding-top: 1rem;
+	}
+
+	.link {
+		background-color: transparent;
+		display: flex;
+		gap: 0.5rem;
+		padding: 1rem 2rem !important;
+		text-decoration: none;
+		transition-duration: 0.1s;
+		transition-property: background-color;
+		width: 100%;
+
+		&:hover {
+			background-color: hsla(var(--palette-black-hsl), 0.5);
+		}
+	}
+}

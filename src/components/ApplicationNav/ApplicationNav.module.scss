@@ -3,8 +3,8 @@
 	grid-template-columns: repeat(2, 1fr);
 	inset: 0;
 	overflow: hidden;
-	position: absolute;
-	z-index: 1;
+	position: fixed;
+	z-index: 3;
 
 	&:not(.is-visible) {
 		pointer-events: none;

@@ -1,0 +1,8 @@
+.motion-background {
+	filter: sepia(100%) hue-rotate(160deg);
+	height: 100vh;
+	object-fit: cover;
+	pointer-events: none;
+	position: fixed;
+	width: calc(100vw - var(--scrollbar-width));
+}

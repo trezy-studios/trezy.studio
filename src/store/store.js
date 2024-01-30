@@ -16,6 +16,13 @@ export const store = makeStore({
 	gameKeys: null,
 
 	isApplicationNavVisible: false,
+
+	isRetrievingSession: false,
+
+	isSessionLoaded: false,
+
+	/** @type {null | import('@supabase/supabase-js').AuthSession} */
+	session: null,
 })
 
 if (typeof window !== 'undefined') {

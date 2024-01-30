@@ -1,4 +1,5 @@
 .button {
+	align-items: center;
 	appearance: none;
 	background-color: transparent;
 	background-image: none;
@@ -8,6 +9,7 @@
 	display: block;
 	font-family: inherit;
 	font-size: inherit;
+	font-weight: inherit;
 	line-height: 2;
 	padding: 0.5rem 2rem;
 	position: relative;
@@ -26,43 +28,66 @@
 	// 	}
 	// }
 
-	// &.is-link {
-	// 	color: var(--palette-green);
-	// 	text-decoration: underline;
-	// 	text-decoration-color: transparent;
+	&.is-link {
+		padding: 0;
+		text-align: inherit;
+	}
 
-	// 	&:hover {
-	// 		text-decoration-color: currentColor;
-	// 	}
-	// }
+	&.is-loading {
+		position: relative;
 
-	// &.is-loading {
-	// 	position: relative;
-	// }
+		.label {
+			color: transparent;
+		}
+	}
 
-	// &.is-primary {
-	// 	background-color: var(--palette-green);
-	// 	color: var(--palette-white);
+	&.is-primary {
+		background-color: hsl(var(--palette-blue-hsl));
+		border-color: hsl(var(--palette-blue-hsl));
+		border-radius: 2.5rem;
+		border-style: solid;
+		border-width: 0.2rem;
+		color: var(--palette-white);
 
-	// 	&:hover {
-	// 		background-color: var(--palette-dark-green);
-	// 	}
-	// }
+		&:not(.is-disabled):hover {
+			background-color: hsl(var(--palette-blue-h), var(--palette-blue-s), calc(var(--palette-blue-l) - 10%));
+			color: var(--palette-white);
+		}
+	}
 
-	// &:disabled,
-	// &.is-disabled {
-	// 	cursor: auto;
-	// 	opacity: 0.65;
-	// }
+	&.is-secondary {
+		background-color: hsla(var(--palette-blue-h), var(--palette-blue-s), calc(var(--palette-blue-l) + 20%), 0);
+		border-color: hsl(var(--palette-blue-hsl));
+		border-radius: 2.5rem;
+		border-style: solid;
+		border-width: 0.2rem;
+		color: var(--palette-blue);
+
+		&:not(.is-disabled):hover {
+			background-color: hsla(var(--palette-blue-h), var(--palette-blue-s), calc(var(--palette-blue-l) - 10%), 1);
+			color: var(--palette-white);
+		}
+	}
+
+	&:disabled,
+	&.is-disabled {
+		cursor: not-allowed;
+		opacity: 0.65;
+	}
 
 	// .children {
 	// 	position: relative;
 	// }
 
-	// .loader {
-	// 	position: absolute;
-	// 	left: 50%;
-	// 	top: 50%;
-	// 	translate: -50% -50%;
-	// }
+	.label {
+		transition-duration: 0.2s;
+		transition-property: color;
+	}
+
+	.loader {
+		position: absolute;
+		left: 50%;
+		top: 50%;
+		translate: -50% -50%;
+	}
 }

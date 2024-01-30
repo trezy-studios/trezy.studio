@@ -1,5 +1,6 @@
 // Module imports
-import Image from 'next/image.js'
+import { faArrowRight } from '@fortawesome/free-solid-svg-icons'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
 
 
@@ -8,10 +9,11 @@ import Image from 'next/image.js'
 // Local imports
 import styles from './page.module.scss'
 
+import { Content } from '../components/Content/Content.jsx'
 import { Heading } from '../components/Heading/Heading.jsx'
-import LogoImage from '../../public/logo.dark.png'
+import { Hero } from '../components/Hero/Hero.jsx'
+import { Link } from '../components/Link/Link.jsx'
 import { PageContent } from '../components/PageContent/PageContent.jsx'
-import { PageSection } from '../components/PageSection/PageSection.jsx'
 
 
 
@@ -25,22 +27,33 @@ import { PageSection } from '../components/PageSection/PageSection.jsx'
 export default function Home() {
 	return (
 		<PageContent>
-			<PageSection>
-				<Heading>
-					<Image
-						alt={'Trezy Studios logo'}
-						src={LogoImage}
-						width={500} />
+			<Hero>
+				<Heading level={2}>
+					{'Indie Visions,'}<br />
+					{'Extraordinary Journeys'}
 				</Heading>
 
-				<div className={styles['description']}>
-					<p>{'We specialize in creating handcrafted gaming experiences which are both unique and immersive. From the characters to the worlds they inhabit, everything is designed and built with the utmost care and attention to detail. Our goal is to transport players into new and exciting world where they can lose themselves in the experience and become part of the story. If you\'re looking for truly one-of-a-kind gaming experiences... we\'ve got you covered.'}</p>
-				</div>
-			</PageSection>
+				<Content className={styles['content']}>
+					<p>{'Let us guide you on a journey through extraordinary worlds, where every game is a gateway to captivating stories and adventures unknown.'}</p>
+					<p>{'Are you ready for your next unforgettable experience?'}</p>
+					<Link
+						className={styles['call-to-action-button']}
+						href={'/games'}
+						isButton
+						isPrimary>
+						{'Let\'s Go'}
+						<FontAwesomeIcon
+							fixedWidth
+							icon={faArrowRight} />
+					</Link>
+				</Content>
+			</Hero>
 		</PageContent>
 	)
 }
 
+/** @type {import('next').Metadata} */
 export const metadata = {
+	description: 'Welcome to Trezy Studios - Where Imagination Meets Play',
 	title: 'Home',
 }

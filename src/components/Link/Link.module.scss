@@ -1,17 +1,13 @@
 .link {
 	align-items: center;
 	color: inherit;
-	// display: inline-flex;
-	// text-decoration-color: transparent;
-	// transition-duration: 0.2s;
-	// transition-property: text-decoration-color;
-
-	// &:focus,
-	// &:hover {
-	// 	text-decoration-color: currentColor;
-	// }
-
+	height: auto;
+	line-height: inherit;
+	position: relative;
 	transform: translate(0, 0);
 	transition-duration: 0.1s;
-	transition-property: color, transform;
+	transition-property:
+		background-color,
+		color,
+		transform;
 }

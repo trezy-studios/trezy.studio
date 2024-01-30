@@ -40,5 +40,6 @@ body {
 	font-size: var(--font-size);
 	height: 100vh;
 	overflow: auto;
-	width: 100vw;
+	position: relative;
+	width: 100%;
 }

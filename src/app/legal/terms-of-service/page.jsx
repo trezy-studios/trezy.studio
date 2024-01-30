@@ -94,7 +94,7 @@ export default function TermsOfService() {
 	)
 }
 
+/** @type {import('next').Metadata} */
 export const metadata = {
-	description: 'Terms of Service',
 	title: 'Terms of Service',
 }

@@ -80,7 +80,7 @@ export default function CookiePolicy() {
 	)
 }
 
+/** @type {import('next').Metadata} */
 export const metadata = {
-	description: 'Cookie Policy',
 	title: 'Cookie Policy',
 }

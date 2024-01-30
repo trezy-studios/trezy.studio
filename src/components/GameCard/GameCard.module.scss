@@ -1,0 +1,56 @@
+.content {
+	background-color: var(--background-color);
+	color: var(--text-color);
+	padding: 2rem;
+	position: relative;
+	z-index: 2;
+}
+
+.game-card {
+	--one-third-max-width: calc(var(--max-content-width) / 3);
+
+	padding-right: var(--one-third-max-width);
+
+	> * {
+		max-width: calc(var(--one-third-max-width) * 2);
+	}
+}
+
+.heading {
+	padding: 0;
+}
+
+.links {
+	display: flex;
+	font-size: 2.5rem;
+	grid-area: links;
+	position: relative;
+	width: min-content;
+	z-index: 2;
+
+	> a {
+		background-color: var(--background-color);
+		color: var(--text-color);
+		padding: 2rem;
+		scale: 1;
+		transition-duration: 0.1s;
+		transition-property: scale;
+
+		&:hover {
+			scale: 1.2;
+		}
+	}
+}
+
+.logo {
+	min-height: 10rem;
+	padding: 0;
+	position: relative;
+	z-index: 2;
+
+	img {
+		max-width: 100%;
+		object-fit: contain;
+		object-position: center left;
+	}
+}

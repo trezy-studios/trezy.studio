@@ -4,6 +4,7 @@
 import {
 	useEffect,
 	useMemo,
+	useRef,
 } from 'react'
 import classnames from 'classnames'
 import { usePathname } from 'next/navigation'
@@ -35,6 +36,8 @@ export function ApplicationNav() {
 
 	const pathname = usePathname()
 
+	const applicationNavRef = useRef(null)
+
 	const compiledClassName = useMemo(() => {
 		return classnames({
 			[styles['application-nav']]: true,
@@ -47,7 +50,9 @@ export function ApplicationNav() {
 	}, [pathname])
 
 	return (
-		<div className={compiledClassName}>
+		<div
+			ref={applicationNavRef}
+			className={compiledClassName}>
 			<SiteNav />
 			<ContentSummary />
 		</div>

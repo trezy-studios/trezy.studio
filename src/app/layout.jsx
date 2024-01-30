@@ -12,11 +12,12 @@ import '../styles/reset.scss'
 import '../styles/lib.scss'
 import '../styles/app.scss'
 
-import { ApplicationNav } from '../components/ApplicationNav.js/ApplicationNav.jsx'
+import { ApplicationNav } from '../components/ApplicationNav/ApplicationNav.jsx'
 import { ArticulatFont } from '../fonts/ArticulatFont.js'
 import { Banner } from '../components/Banner/Banner.jsx'
 import { Footer } from '../components/Footer/Footer.jsx'
 import { JSONLD } from '../components/JSONLD/JSONLD.jsx'
+import { MotionBackground } from '../components/MotionBackground/MotionBackground.jsx'
 import { TREZY_JSONLD } from '../json+ld/Trezy.js'
 import { TREZYSTUDIOS_JSONLD } from '../json+ld/TrezyStudios.js'
 
@@ -41,6 +42,7 @@ export default function RootLayout(props) {
 			className={compiledClassName}
 			lang={'en'}>
 			<body>
+				<MotionBackground />
 				<ApplicationNav />
 				<Banner />
 

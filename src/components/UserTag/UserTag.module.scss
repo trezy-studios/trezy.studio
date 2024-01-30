@@ -1,0 +1,21 @@
+.inline-avatar {
+	aspect-ratio: 1 / 1;
+	border-radius: 1ch;
+	display: inline-block;
+	height: 2ch;
+	margin-bottom: -0.5ch;
+	margin-right: 0.2rem;
+	overflow: hidden;
+	position: relative;
+	vertical-align: baseline;
+}
+
+.user-tag {
+	background-color: var(--palette-blue);
+	border-radius: 1ch;
+	display: inline-block;
+	margin-bottom: -0.7rem;
+	margin-top: -0.4rem;
+	padding: 0.4rem;
+	padding-bottom: 0.7rem;
+}

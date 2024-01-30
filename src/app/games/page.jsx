@@ -1,23 +1,16 @@
-// Module imports
-import {
-	faItchIo,
-	faSteam,
-} from '@fortawesome/free-brands-svg-icons'
-import { faGlobe } from '@fortawesome/free-solid-svg-icons'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import Image from 'next/image.js'
-
-
-
-
-
 // Local imports
 import styles from './page.module.scss'
 
-import DebugLogo from '../../../public/game-media/debug/logo.png'
-import { Link } from '../../components/Link/Link.jsx'
+import {
+	Hero,
+	SIZES,
+} from '../../components/Hero/Hero.jsx'
+import { Content } from '../../components/Content/Content.jsx'
+// import { DiscordCallToAction } from '../../components/DiscordCallToAction/DiscordCallToAction.jsx'
+import { GameCard } from '../../components/GameCard/GameCard.jsx'
+import { Heading } from '../../components/Heading/Heading.jsx'
 import { PageContent } from '../../components/PageContent/PageContent.jsx'
-import { PageSection } from '../../components/PageSection/PageSection.jsx'
+import * as Contentful from '../../helpers/Contentful.js'
 
 
 
@@ -28,54 +21,34 @@ import { PageSection } from '../../components/PageSection/PageSection.jsx'
  *
  * @component
  */
-export default function GamesPage() {
+export default async function GamesPage() {
+	const games = await Contentful.getGames()
+
+	const mappedGames = games.map(game => (
+		<GameCard
+			key={game.sys.id}
+			game={game} />
+	))
+
 	return (
-		<PageContent>
-			<PageSection>
-				<div className={styles['game-card']}>
-					<div className={styles['thumbnail']}>
-						<Image
-							alt={'Debug logo'}
-							className={styles['pixel-art']}
-							src={DebugLogo} />
-					</div>
+		<PageContent className={styles['page']}>
+			<Hero size={SIZES.MOST}>
+				<Content>
+					<Heading level={2}>
+						{'Our Games'}
+					</Heading>
 
-					<header className={styles['header']}>
-						{'Debug'}
-					</header>
+					<p>{'Explore the unique worlds we\'ve created at Trezy Studios! Each game is a window into a story untold, an adventure waiting to be had.'}</p>
+				</Content>
+			</Hero>
 
-					<div className={'description'}>
-						<p>{'Take on the role of The Engineer and help The Debugger fix bugs in a complex system. Navigate challenging levels, inspired by Tetris and Sokoban, perfect for flexing your problem-solving skills. Unique storyline, retro graphics, and a relaxing soundtrack.'}</p>
-					</div>
-
-					<div className={styles['links']}>
-						<Link href={'https://debug.game/'}>
-							<FontAwesomeIcon
-								fixedWidth
-								icon={faGlobe}
-								title={'Website'} />
-						</Link>
-
-						<Link href={'https://debug.game/steam'}>
-							<FontAwesomeIcon
-								fixedWidth
-								icon={faSteam}
-								title={'Steam'} />
-						</Link>
-
-						<Link href={'https://debug.game/itch'}>
-							<FontAwesomeIcon
-								fixedWidth
-								icon={faItchIo}
-								title={'Itch'} />
-						</Link>
-					</div>
-				</div>
-			</PageSection>
+			{mappedGames}
 		</PageContent>
 	)
 }
 
+/** @type {import('next').Metadata} */
 export const metadata = {
+	description: 'A Universe of Unforgettable Experiences',
 	title: 'Our Games',
 }

@@ -1,1 +1,14 @@
-.heading {}
+.heading {
+	max-width: var(--max-content-width);
+
+	&.level-2 {
+		font-size: 4em;
+		font-weight: 900;
+		line-height: 1;
+	}
+
+	&.level-3 {
+		font-size: 2em;
+		font-weight: 900;
+	}
+}

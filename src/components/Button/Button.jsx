@@ -1,3 +1,5 @@
+'use client'
+
 // Style imports
 import {
 	useCallback,
@@ -11,6 +13,7 @@ import PropTypes from 'prop-types'
 
 
 // Local imports
+import linkStyles from '../Link/Link.module.scss'
 import styles from './Button.module.scss'
 
 import { ButtonLoader } from './ButtonLoader.jsx'
@@ -33,6 +36,7 @@ export function Button(props) {
 		isLink,
 		isLoading,
 		isPrimary,
+		isSecondary,
 		isSubmit,
 		onClick,
 		onMouseOut,
@@ -41,13 +45,16 @@ export function Button(props) {
 	} = props
 
 	const compiledClassName = useMemo(() => {
-		return classnames(styles['button'], className, {
+		return classnames(styles['button'], {
 			[styles['is-auxiliary']]: isAuxiliary,
 			[styles['is-disabled']]: isDisabled,
 			[styles['is-link']]: isLink,
 			[styles['is-loading']]: isLoading,
 			[styles['is-primary']]: isPrimary,
-		})
+			[styles['is-secondary']]: isSecondary,
+
+			[linkStyles['link']]: isLink,
+		}, className)
 	}, [
 		className,
 		isAuxiliary,
@@ -55,13 +62,22 @@ export function Button(props) {
 		isLink,
 		isLoading,
 		isPrimary,
+		isSecondary,
 	])
 
 	const handleActivate = useCallback((...args) => {
+		if (isLoading || isDisabled) {
+			return
+		}
+
 		if (onMouseOver) {
 			onMouseOver(...args)
 		}
-	}, [onMouseOver])
+	}, [
+		isDisabled,
+		isLoading,
+		onMouseOver,
+	])
 
 	const handleDeactivate = useCallback((...args) => {
 		if (onMouseOut) {
@@ -80,7 +96,9 @@ export function Button(props) {
 			onMouseOut={handleDeactivate}
 			onMouseOver={handleActivate}
 			type={isSubmit ? 'submit' : 'button'}>
-			{children}
+			<span className={styles['label']}>
+				{children}
+			</span>
 
 			{shouldShowLoader && (
 				<ButtonLoader isLoading={isLoading} />
@@ -110,6 +128,9 @@ Button.propTypes = {
 
 	/** Whether or not this button is used for a primary action. */
 	isPrimary: PropTypes.bool,
+
+	/** Whether or not this button is used for a secondary action. */
+	isSecondary: PropTypes.bool,
 
 	/** Whether or not this should be a submit button. */
 	isSubmit: PropTypes.bool,

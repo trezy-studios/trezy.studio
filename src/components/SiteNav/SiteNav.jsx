@@ -10,6 +10,7 @@ import { useStore } from 'statery'
 import styles from './SiteNav.module.scss'
 
 // import { AuthLinkAndDropdown } from './AuthLinkAndDropdown.jsx'
+import { AuthMenu } from './AuthMenu.jsx'
 import Image from 'next/image.js'
 import LogoImage from '../../../public/logomark.white.png'
 import { NavItem } from './NavItem.jsx'
@@ -81,7 +82,7 @@ export function SiteNav() {
 					href={'/about'}
 					label={'About'} />
 
-				{/* <AuthLinkAndDropdown /> */}
+				<AuthMenu />
 			</nav>
 		</motion.div>
 	)

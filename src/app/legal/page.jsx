@@ -46,7 +46,7 @@ export default function LegalIndex() {
 	)
 }
 
+/** @type {import('next').Metadata} */
 export const metadata = {
-	description: 'Legal Documents',
 	title: 'Legal Documents',
 }

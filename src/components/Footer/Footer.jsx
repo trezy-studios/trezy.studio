@@ -1,8 +1,6 @@
 // Module imports
 import {
 	faDiscord,
-	faGithub,
-	faItchIo,
 	faSteam,
 	faTwitter,
 	faYoutube,
@@ -16,7 +14,6 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 // Local imports
 import styles from './Footer.module.scss'
 
-import { faHumbleBundle } from '../../icons/faHumbleBundle.js'
 import { Link } from '../Link/Link.jsx'
 
 
@@ -60,14 +57,6 @@ export function Footer() {
 
 			<div className={styles['social-links']}>
 				<Link
-					className={styles['discord']}
-					href={'/discord'}>
-					<FontAwesomeIcon
-						fixedWidth
-						icon={faDiscord} />
-				</Link>
-
-				<Link
 					className={styles['twitter']}
 					href={'/twitter'}>
 					<FontAwesomeIcon
@@ -92,27 +81,11 @@ export function Footer() {
 				</Link>
 
 				<Link
-					className={styles['humble-bundle']}
-					href={'/humble-bundle'}>
+					className={styles['discord']}
+					href={'/discord'}>
 					<FontAwesomeIcon
 						fixedWidth
-						icon={faHumbleBundle} />
-				</Link>
-
-				<Link
-					className={styles['itch']}
-					href={'/itch'}>
-					<FontAwesomeIcon
-						fixedWidth
-						icon={faItchIo} />
-				</Link>
-
-				<Link
-					className={styles['github']}
-					href={'/github'}>
-					<FontAwesomeIcon
-						fixedWidth
-						icon={faGithub} />
+						icon={faDiscord} />
 				</Link>
 			</div>
 		</footer>

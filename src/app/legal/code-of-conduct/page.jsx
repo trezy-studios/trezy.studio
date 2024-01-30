@@ -69,6 +69,7 @@ export default function CodeOfConduct() {
 	)
 }
 
+/** @type {import('next').Metadata} */
 export const metadata = {
 	description: 'TL;DR: Don\'t be a butthole and everything\'s cool.',
 	title: 'Code of Conduct',

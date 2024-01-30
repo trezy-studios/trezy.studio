@@ -19,6 +19,7 @@ export default function DashboardPage() {
 	)
 }
 
+/** @type {import('next').Metadata} */
 export const metadata = {
 	title: 'Dashboard',
 }
