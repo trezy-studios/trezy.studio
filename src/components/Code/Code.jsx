@@ -2,11 +2,11 @@
 
 // Module imports
 import {
-	useEffect,
+	// useEffect,
 	useMemo,
 } from 'react'
 import classnames from 'classnames'
-import Prism from 'prismjs'
+// import Prism from 'prismjs'
 import PropTypes from 'prop-types'
 
 
@@ -76,67 +76,67 @@ export function Code(props) {
 		parsedLanguage,
 	])
 
-	useEffect(() => {
-		if (!copyButtonIsRegistered) {
-			Prism.plugins.toolbar.registerButton('copy', () => {
-				const button = document.createElement('button')
-				button.classList.add('copy-code')
-				button.style.cursor = 'pointer'
-				button.innerHTML = '<i class="fa-solid fa-clone">Copy</i>'
+	// useEffect(() => {
+	// 	if (!copyButtonIsRegistered) {
+	// 		Prism.plugins.toolbar.registerButton('copy', () => {
+	// 			const button = document.createElement('button')
+	// 			button.classList.add('copy-code')
+	// 			button.style.cursor = 'pointer'
+	// 			button.innerHTML = '<i class="fa-solid fa-clone">Copy</i>'
 
-				button.addEventListener('click', async() => {
-					// eslint-disable-next-line jsdoc/require-jsdoc
-					const fallbackCopyTextToClipboard = () => {
-						const textArea = document.createElement('textarea')
-						textArea.value = children
+	// 			button.addEventListener('click', async() => {
+	// 				// eslint-disable-next-line jsdoc/require-jsdoc
+	// 				const fallbackCopyTextToClipboard = () => {
+	// 					const textArea = document.createElement('textarea')
+	// 					textArea.value = children
 
-						// Avoid scrolling to bottom
-						textArea.style.top = '0'
-						textArea.style.left = '0'
-						textArea.style.position = 'fixed'
+	// 					// Avoid scrolling to bottom
+	// 					textArea.style.top = '0'
+	// 					textArea.style.left = '0'
+	// 					textArea.style.position = 'fixed'
 
-						document.body.appendChild(textArea)
-						textArea.focus()
-						textArea.select()
+	// 					document.body.appendChild(textArea)
+	// 					textArea.focus()
+	// 					textArea.select()
 
-						try {
-							const isSuccessful = document.execCommand('copy')
-							setTimeout(() => {
-								if (isSuccessful) {
-									onCopySuccess()
-								} else {
-									onCopyFail()
-								}
-							}, 1)
-						} catch (error) {
-							setTimeout(() => {
-								onCopyFail(error)
-							}, 1)
-						}
+	// 					try {
+	// 						const isSuccessful = document.execCommand('copy')
+	// 						setTimeout(() => {
+	// 							if (isSuccessful) {
+	// 								onCopySuccess()
+	// 							} else {
+	// 								onCopyFail()
+	// 							}
+	// 						}, 1)
+	// 					} catch (error) {
+	// 						setTimeout(() => {
+	// 							onCopyFail(error)
+	// 						}, 1)
+	// 					}
 
-						document.body.removeChild(textArea)
-					}
+	// 					document.body.removeChild(textArea)
+	// 				}
 
-					if (navigator.clipboard) {
-						try {
-							await navigator.clipboard.writeText(children)
-							onCopySuccess()
-						} catch (error) {
-							fallbackCopyTextToClipboard()
-						}
-					} else {
-						fallbackCopyTextToClipboard()
-					}
-				})
+	// 				if (navigator.clipboard) {
+	// 					try {
+	// 						await navigator.clipboard.writeText(children)
+	// 						onCopySuccess()
+	// 					} catch (error) {
+	// 						fallbackCopyTextToClipboard()
+	// 					}
+	// 				} else {
+	// 					fallbackCopyTextToClipboard()
+	// 				}
+	// 			})
 
-				return button
-			})
+	// 			return button
+	// 		})
 
-			copyButtonIsRegistered = true
-		}
+	// 		copyButtonIsRegistered = true
+	// 	}
 
-		Prism.highlightAll()
-	}, [children])
+	// 	Prism.highlightAll()
+	// }, [children])
 
 	return (
 		<pre {...compiledProps.pre}>
