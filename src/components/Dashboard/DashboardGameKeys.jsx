@@ -91,7 +91,25 @@ export function DashboardGameKeys() {
 			},
 			{ id: 'appName' },
 		),
-		COLUMN_HELPER.accessor('key', {}),
+		COLUMN_HELPER.accessor(
+			/**
+			 * @param {import('../../types/GameKey.js').GameKey} row The data row.
+			 * @returns {string} The rendered application name.
+			 */
+			row => {
+				return row.key
+					.split('')
+					.map(character => {
+						if (/\w/u.test(character)) {
+							return 'X'
+						}
+
+						return character
+					})
+					.join('')
+			},
+			{ id: 'key' },
+		),
 	], [applications])
 
 	const tableManager = useReactTable({
