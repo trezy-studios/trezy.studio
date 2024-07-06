@@ -49,7 +49,7 @@ export function GameCard(props) {
 				<Image
 					alt={description ?? ''}
 					fill
-					src={`https://${game.fields.heroImage.fields.file.url}`}
+					src={`https:${game.fields.heroImage.fields.file.url}`}
 					title={title} />
 			)
 		}
@@ -67,7 +67,7 @@ export function GameCard(props) {
 					<Image
 						alt={description ?? ''}
 						fill
-						src={`https://${game.fields.logo.fields.file.url}`}
+						src={`https:${game.fields.logo.fields.file.url}`}
 						title={title} />
 				</div>
 			)
