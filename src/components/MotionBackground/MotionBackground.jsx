@@ -47,7 +47,7 @@ export function MotionBackground() {
 			loop
 			muted
 			preload={'auto'}
-			src={'backgrounds/abstract-background_2.webm'}
+			src={'backgrounds/abstract-background.webm'}
 			variants={VARIANTS} />
 	)
 }
