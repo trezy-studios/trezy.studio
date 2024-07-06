@@ -1,12 +1,8 @@
 'use client'
 
 // Module imports
-import {
-	faGauge,
-	faRightFromBracket,
-	faUser,
-} from '@fortawesome/free-solid-svg-icons'
 import classnames from 'classnames'
+import { faUser } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import Image from 'next/image.js'
 
@@ -29,7 +25,7 @@ import useSupabase from '../../hooks/useSupabase.js'
 export function AuthLinkAndDropdown() {
 	const {
 		signInWithDiscord,
-		signOut,
+		// signOut,
 		user,
 	} = useSupabase()
 

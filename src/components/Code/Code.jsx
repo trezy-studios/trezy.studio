@@ -1,20 +1,16 @@
 'use client'
 
 // Module imports
-import {
-	// useEffect,
-	useMemo,
-} from 'react'
 import classnames from 'classnames'
-// import Prism from 'prismjs'
 import PropTypes from 'prop-types'
+import { useMemo } from 'react'
 
 
 
 
 
 // Variables
-let copyButtonIsRegistered = false
+// let copyButtonIsRegistered = false
 
 
 
